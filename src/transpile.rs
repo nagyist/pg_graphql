@@ -30,7 +30,7 @@ pub fn quote_literal(ident: &str) -> String {
 }
 
 pub fn rand_block_name() -> String {
-    use rand::Rng;
+    use rand::RngExt;
     quote_ident(
         &rand::rng()
             .sample_iter(&Alphanumeric)
