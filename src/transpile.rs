@@ -1723,7 +1723,7 @@ impl NodeSelection {
 
 impl ColumnBuilder {
     pub fn to_sql(&self, block_name: &str) -> GraphQLResult<String> {
-        let col = format!("{}.{}", &block_name, quote_ident(&self.column.name));
+        let col = format!("{}.{}", block_name, quote_ident(&self.column.name));
         let maybe_enum = self.column.type_.as_ref().and_then(|t| match t.details {
             Some(TypeDetails::Enum(ref enum_)) => Some(enum_),
             _ => None,

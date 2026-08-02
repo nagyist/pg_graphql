@@ -2084,7 +2084,7 @@ where
                 return Err(GraphQLError::internal(format!(
                     "Unknown field '{}' on type '{}'",
                     selection_field.name.as_ref(),
-                    &type_name
+                    type_name
                 )));
             }
             Some(f) => {
