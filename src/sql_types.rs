@@ -1002,7 +1002,7 @@ pub fn load_sql_context(_config: &Config) -> GraphQLResult<Arc<Context>> {
     /// This pass cross-reference column types
     fn column_types(mut context: Context) -> Context {
         // We process tables to cross-reference their columns' types
-        for (_oid, table) in context.tables.iter_mut() {
+        for table in context.tables.values_mut() {
             if let Some(mtable) = Arc::get_mut(table) {
                 // It should be possible to get a mutable reference to table at this point
                 // as there are no other references to this Arc at this point.
